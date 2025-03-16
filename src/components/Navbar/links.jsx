@@ -3,7 +3,9 @@ import React from "react";
 const Links = ({ title }) => {
   return (
     <>
-      <a className=" cursor-pointer">{title}</a>
+      <a href={title} className="cursor-pointer">
+        {title}
+      </a>
     </>
   );
 };

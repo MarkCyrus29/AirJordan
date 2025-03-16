@@ -1,10 +1,113 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 body {
   background-color: black;
 }
+
 * {
   color: white;
+  font-family: "Fira Code";
+}
+
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 0;
+  animation: dash 7s ease-out alternate;
+}
+
+@keyframes dash {
+  0% {
+    stroke-dashoffset: 5000;
+    fill: transparent;
+    stroke-width: 15;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    stroke-width: 0;
+  }
+}
+
+.btn0 svg g circle,
+.btn1 svg g circle,
+.btn2 svg g circle,
+.btn3 svg g circle {
+  transition: all 0.3s ease;
+}
+
+.btn0.visible svg g circle,
+.btn1.visible svg g circle,
+.btn2.visible svg g circle,
+.btn3.visible svg g circle {
+  stroke: rgb(235, 235, 235);
+  stroke-width: 1;
+  overflow: visible;
+}
+
+#redShoe,
+#greenShoe,
+#blueShoe,
+#yellowShoe {
+  position: relative;
+  background-color: black;
+}
+#redShoe.visible::before,
+#blueShoe.visible::before,
+#greenShoe.visible::before,
+#yellowShoe.visible::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgb(188, 188, 188) 0%, transparent 15%);
+  animation: lateReveal 0.75s ease-in-out forwards;
+  z-index: -1;
+}
+#redShoe.visible {
+  background: #95131f;
+  animation: reveal 1.5s ease-out forwards;
+}
+#blueShoe.visible {
+  margin-left: -1rem;
+  background: #2f3653;
+  animation: reveal 1.5s ease-out forwards;
+}
+#greenShoe.visible {
+  margin-left: -2rem;
+  background: #058a49;
+  animation: reveal 1.5s ease-out forwards;
+}
+#yellowShoe.visible {
+  background: #d08c01;
+  animation: reveal 1.5s ease-out forwards;
+}
+@keyframes reveal {
+  0% {
+    clip-path: circle(25% at center);
+  }
+  50% {
+    clip-path: circle(25% at center);
+  }
+  100% {
+    clip-path: circle(100% at center);
+  }
+}
+@keyframes lateReveal {
+  0% {
+    background-size: 0% 0%;
+    background-position: center;
+  }
+  70% {
+    clip-path: circle(0% at center);
+    background-size: 0% 0%;
+    background-position: center;
+  }
+  100% {
+    clip-path: circle(100% at center);
+    background-size: 250% 250%;
+    background-position: center;
+  }
 }
