@@ -33,8 +33,8 @@ function ScrollSection() {
           scrub: 1,
           pin: true,
           snap: {
-            snapTo: [0, 0.33, 0.66, 1], // Defined snap points
-            duration: 0.5, // Smoother snapping
+            snapTo: [0, 0.33, 0.66, 1], 
+            duration: 0.5,
             ease: "power2.out",
             inertia: false,
           },

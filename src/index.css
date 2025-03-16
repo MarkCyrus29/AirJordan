@@ -86,10 +86,10 @@ body {
 }
 @keyframes reveal {
   0% {
-    clip-path: circle(25% at center);
+    clip-path: circle(0% at center);
   }
-  50% {
-    clip-path: circle(25% at center);
+  30% {
+    clip-path: circle(20% at center);
   }
   100% {
     clip-path: circle(100% at center);
@@ -100,7 +100,7 @@ body {
     background-size: 0% 0%;
     background-position: center;
   }
-  70% {
+  50% {
     clip-path: circle(0% at center);
     background-size: 0% 0%;
     background-position: center;
